@@ -6,4 +6,5 @@ public enum Departamento {
 	SAUDE,
 	UTILIDADES,
 	ESPORTE;
+	
 }
