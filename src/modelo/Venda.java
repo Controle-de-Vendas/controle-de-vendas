@@ -1,29 +1,37 @@
 package modelo;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
-import enumerações.Pagamento;
-import enumerações.StatusDaVenda;
-
+import enumeracao.Pagamento;
+import enumeracao.StatusDaVenda;
+/**
+ * <p>A classe venda serve para modelar as vendas realizadas no sistema se relacionando com a classe Item no processo.</p>
+ * @see Item
+ * @author Pedro Henrique Rodrigues, Chaydson Ferreira
+ */
 public class Venda {
 	
-	private static Integer idVenda = 0;
+	private static Integer auxiliarAtualizaId = 0;
 	private Integer id;
 	private Vendedor vendedor;
 	private Cliente cliente;
-	private List<Item> itens;
+	private List<Item> itens = new ArrayList<Item>();
 	private String data;
 	private Double valor;
 	private StatusDaVenda status;
 	private Pagamento pagamento;
-	
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	static DecimalFormat df = new DecimalFormat("#,###.##", new DecimalFormatSymbols(Locale.GERMAN));
 	
 	public Venda(Vendedor vendedor, Cliente cliente , List<Item> itens,
 			StatusDaVenda status, Pagamento pagamento) {
-		this.id = idVenda + 1;
+		this.id = auxiliarAtualizaId + 1;
 		this.vendedor = vendedor;
 		this.cliente = cliente;
 		this.itens = itens;
@@ -31,7 +39,7 @@ public class Venda {
 		this.valor = calcularTotal();
 		this.status = status;
 		this.pagamento = pagamento;
-		idVenda += 1;
+		auxiliarAtualizaId += 1;
 	}
 
 	public Integer getId() {
@@ -95,6 +103,7 @@ public class Venda {
 
 
 	public Double getValor() {
+		valor = calcularTotal();
 		return valor;
 	}
 
@@ -105,6 +114,7 @@ public class Venda {
 		for (Item i : itens) {
 			total += i.calcularSubtotal();
 		}
+		df.format(total);
 		this.valor = total;
 	}
 
@@ -127,7 +137,11 @@ public class Venda {
 	public void setPagamento(Pagamento pagamento) {
 		this.pagamento = pagamento;
 	}
-
+	
+	/**
+	 * Método responsável por calcular o valor total da venda realizada.
+	 * @return valor total da venda realizada.
+	 */
 	public Double calcularTotal() {
 		Double total = 0.0;
 		for (Item i : itens) {
@@ -136,6 +150,9 @@ public class Venda {
 		return total;
 	}
 	
+	/**
+	 * Método responsável por "devolver" os produtos vendidos ao estoque em caso de exclusão da venda do sistema.
+	 */
 	public void zerarListaItens() {
 		for(Item i : itens) {
 			i.devolverProduto();

@@ -1,7 +1,12 @@
 package modelo;
 
-import enumerações.Departamento;
-
+import enumeracao.Departamento;
+/**
+ * <p> A classe Funcionário, que extende Pessoa, serve para generalizar todos os funcionários.</p> 
+ * @see Pessoa 
+ * @author Pedro Henrique Rodrigues, Chaydson Ferreira
+ *
+ */
 public abstract class Funcionario extends Pessoa {
 
 	private Departamento departamento;
@@ -23,6 +28,10 @@ public abstract class Funcionario extends Pessoa {
 	public Double getSalarioBase() {
 		return salarioBase;
 	}
-
+	/**
+	 * Método abstrato que calcula o salário de cada funcionário de acordo com a função.
+	 * @return salário do funcionário.
+	 * 
+	 */
 	public abstract double calcularSalario();
 }

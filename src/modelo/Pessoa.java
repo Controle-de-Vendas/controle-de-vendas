@@ -1,5 +1,10 @@
 package modelo;
-
+/**  
+ * 
+ * <p>A classe abstrata Pessoa serve para generalizar as entidades do sistema</p> 
+ * @author Pedro Henrique Rodrigues, Chaydson Ferreira
+ * 
+ */
 public abstract class Pessoa {
 	
 	private Integer id;

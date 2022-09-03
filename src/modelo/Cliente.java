@@ -1,5 +1,10 @@
 package modelo;
-
+/**  
+ * 
+ * <p>A classe Cliente é usada para modelar a entidade cliente</p>  
+ * @author Pedro Henrique Rodrigues, Chaydson Ferreira
+ * 
+ */
 public class Cliente extends Pessoa {
 	private static Integer idCliente = 0;
 	private String endereco;
@@ -10,7 +15,7 @@ public class Cliente extends Pessoa {
 		idCliente += 1;
 	}
 
-
+	
 	public String getEndereco() {
 		return endereco;
 	}

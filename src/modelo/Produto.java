@@ -1,8 +1,13 @@
 package modelo;
 
+/**
+ * <p> A classe Produto serve para modelar os produtos vendidos no sistema.</p>
+ * @author Pedro Henrique Rodrigues, Chaydson Ferreira
+ *
+ */
 public class Produto {
 	
-	private static Integer idProduto = 0;
+	private static Integer auxilizarAtualizaId = 0;
 	private Integer id;
 	private String nome;
 	private Double preco;
@@ -10,11 +15,11 @@ public class Produto {
 	private Integer quantidade;
 	
 	public Produto(String nome, Double preco, Integer quantidade) {
-		this.id = idProduto + 1;
+		this.id = auxilizarAtualizaId + 1;
 		this.nome = nome;
 		this.preco = preco;
 		this.quantidade = quantidade;
-		idProduto += 1;
+		auxilizarAtualizaId += 1;
 	}
 
 	public Integer getId() {

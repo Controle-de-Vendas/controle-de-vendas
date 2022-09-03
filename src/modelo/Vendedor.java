@@ -3,8 +3,12 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-import enumerações.Departamento;
-
+import enumeracao.Departamento;
+/**
+ * <p>A classe Vendedor serve para modelar os funcionários vendedores.</p>
+ * @see Funcionario
+ * @author Pedro Henrique Rodrigues, Chaydson Ferreira
+ */
 public class Vendedor extends Funcionario {
 
 	private static Integer idVendedor = 0;
@@ -24,6 +28,10 @@ public class Vendedor extends Funcionario {
 		vendas.add(venda);
 	}
 	
+	/**
+	 * Método que calcula o salário do vendedor.
+	 * @return salário do vendedor.
+	 */
 	@Override
 	public double calcularSalario() {
 		double comissao = 0;

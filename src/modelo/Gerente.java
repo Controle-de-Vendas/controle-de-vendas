@@ -3,8 +3,12 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-import enumerações.Departamento;
-
+import enumeracao.Departamento;
+/**
+ * <p>A classe Gerente serve para modelar os funcionários gerentes.</p>
+ * @see Funcionario
+ * @author Pedro Henrique Rodrigues, Chaydson Ferreira
+ */
 public class Gerente extends Funcionario {
 	
 	private static Integer idGerente = 0;
@@ -15,7 +19,8 @@ public class Gerente extends Funcionario {
 		super(idGerente + 1, name, cpf, departamento);
 		idGerente += 1;
 	}
-
+	
+	
 	public List<Vendedor> getVendedoresAssociados() {
 		return vendedoresAssociados;
 	}
@@ -26,8 +31,10 @@ public class Gerente extends Funcionario {
 		vendedoresAssociados.add(vendedor);
 	}
 
-
-
+	/**
+	 * Método que calcula o salário de gerente.
+	 * @return salário do gerente.
+	 */
 	@Override
 	public double calcularSalario() {
 		Double comissao = 0.0;
