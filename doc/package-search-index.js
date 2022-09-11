@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"controle"},{"l":"interfaces"},{"l":"modelo"},{"l":"tela"},{"l":"utilitario"}];updateSearchResults();
